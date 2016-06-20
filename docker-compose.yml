@@ -1,0 +1,62 @@
+version: '2'
+services:
+  piwigo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - 8000:80
+    volumes:
+      - /photos/gallery:/var/www/galleries:ro
+      - /photos/upload:/var/www/upload:rw
+    depends_on:
+      - db
+    links:
+      - db
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: 389c718c1a11984b4b462b68de15f208
+      MYSQL_DATABASE: photos
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 189b718c2a11984b4b462b68de15f201
+    ports:
+      - 8001:3306
+    volumes:
+      - ./my.cnf:/etc/mysql/my.cnf
+    restart: always
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
